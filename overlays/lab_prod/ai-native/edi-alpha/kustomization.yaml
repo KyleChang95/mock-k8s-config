@@ -1,0 +1,5 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: ai-native          # 明確指定 namespace，這是方案 B 的隔離手段
+resources:
+  - ../../../../base/edi-alpha
