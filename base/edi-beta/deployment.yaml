@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edi-beta
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: edi-beta
+  template:
+    metadata:
+      labels:
+        app: edi-beta
+    spec:
+      containers:
+        - name: edi-beta
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
