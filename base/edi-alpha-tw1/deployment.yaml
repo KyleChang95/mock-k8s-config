@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpha-tw1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alpha-tw1
+  template:
+    metadata:
+      labels:
+        app: alpha-tw1
+    spec:
+      containers:
+        - name: alpha-tw1
+          image: nginx:alpine
+          ports:
+            - containerPort: 80

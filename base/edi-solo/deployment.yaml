@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: solo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: solo
+  template:
+    metadata:
+      labels:
+        app: solo
+    spec:
+      containers:
+        - name: solo
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
