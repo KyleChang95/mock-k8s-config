@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: edi-alpha
+  name: alpha
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: edi-alpha
+      app: alpha
   template:
     metadata:
       labels:
-        app: edi-alpha
+        app: alpha
     spec:
       containers:
-        - name: edi-alpha
+        - name: alpha
           image: nginx:alpine
           ports:
             - containerPort: 80
