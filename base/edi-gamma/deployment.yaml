@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gamma
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gamma
+  template:
+    metadata:
+      labels:
+        app: gamma
+    spec:
+      containers:
+        - name: gamma
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
