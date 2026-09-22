@@ -8,4 +8,4 @@ resources:
 
 images:
   - name: nginx
-    newTag: does-not-exist
+    newTag: 1.28-alpine
