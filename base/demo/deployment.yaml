@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+  labels:
+    app: demo
+spec:
+  replicas: 2
+  # lab 專用：正式環境用預設 600s。改短是為了讓 R7（rollout 卡住 → Degraded）
+  # 在 2 分鐘內就能觀察到結果，而不必等 10 分鐘。
+  # ⚠️ 判讀 R7 結論時要記得換算回 600s。
+  progressDeadlineSeconds: 120
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+        - name: demo
+          image: nginx
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi

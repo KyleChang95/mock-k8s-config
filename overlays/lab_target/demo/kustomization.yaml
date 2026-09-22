@@ -1,0 +1,11 @@
+# 結構刻意對齊 k8s-config 的 overlays/<env>/<service>/kustomization.yaml：
+# 同樣用 images[].newTag 承載 image 版本，CI write-back 改的就是這一行。
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../base/demo
+
+images:
+  - name: nginx
+    newTag: 1.27-alpine
