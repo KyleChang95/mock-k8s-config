@@ -15,4 +15,4 @@ patches:
 # lab 的兩個目標本來就共用 nginx，所以只有一筆。
 images:
   - name: nginx
-    newTag: 1.27-alpine
+    newTag: 1.28-alpine
