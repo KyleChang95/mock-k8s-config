@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: ai-native
+
+# 比照 k8s-config/base/uatu：一個目錄放多個 Deployment，檔名以角色區分。
+# 資源名稱維持 alpha-tw1 / alpha-my1 不變——換手的前提是新 App 渲染出的資源
+# 與舊 App 完全相同（kind / namespace / name 一致），才會是「接手」而非「新建」。
+resources:
+  - deployment-tw1.yaml
+  - service-tw1.yaml
+  - pod-disruption-budget-tw1.yaml
+  - deployment-my1.yaml
+  - service-my1.yaml
+  - pod-disruption-budget-my1.yaml
