@@ -1,9 +1,0 @@
-apiVersion: policy/v1
-kind: PodDisruptionBudget
-metadata:
-  name: alpha-my1
-spec:
-  minAvailable: 100%
-  selector:
-    matchLabels:
-      app: alpha-my1
