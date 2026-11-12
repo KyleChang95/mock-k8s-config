@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: alpha-tw1
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: alpha-tw1
@@ -14,6 +13,9 @@ spec:
     spec:
       containers:
         - name: alpha-tw1
-          image: nginx:alpine
+          image: nginx
+          env:
+            - name: APP_SERVER_NAME
+              value: edi-alpha-tw1
           ports:
             - containerPort: 80
